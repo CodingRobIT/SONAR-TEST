@@ -14,6 +14,7 @@ export default function TodoGallery(props: Props) {
     const inProgressTodos: Todo[] = props.todos.filter((todo) => todo.status === 'IN_PROGRESS')
     const doneTodos: Todo[] = props.todos.filter((todo) => todo.status === 'DONE')
 
+
     return (
         <div className='todo-gallery'>
             <div className='todo-gallery_column'>

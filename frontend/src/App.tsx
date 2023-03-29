@@ -5,6 +5,9 @@ import TodoGallery from "./TodoGallery";
 import {NewTodo, Todo} from "./Todo";
 import axios from "axios";
 import AddTodo from "./AddTodo";
+import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
+
+
 
 function App() {
 
@@ -59,11 +62,22 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <Header/>
-            <TodoGallery todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
-            <AddTodo addTodo={addTodo}/>
-        </div>
+
+            <BrowserRouter>
+                <div className="App">
+                <Header/>
+                <Routes>
+
+                    <Route path='/todos'
+                        element={<TodoGallery todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo}/>}/>
+
+
+                    <Route path='/todos/add'
+                           element={<AddTodo addTodo={addTodo}/>}/>
+                </Routes>
+                </div>
+            </BrowserRouter>
+
     );
 }
 
